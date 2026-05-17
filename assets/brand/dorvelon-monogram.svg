@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dorvelon — Monogram (on-light variant)
+  DN ligature outlined as <path> geometry (no runtime font dependency),
+  navy ink, gold pedestal, dashed construction marks.
+  Companion: dorvelon-monogram-on-dark.svg (white DN for navy surfaces).
+  Use for: business-card back face (on light), email signature, navigation
+  marks, favicon-grade contexts.
+
+  0.30.0: the DN letterforms are now PATH-OUTLINED. Pre-0.30.0 they were
+  <text font-family="Didot, …">; macOS substituted Linotype Didot HT Pro
+  while react-pdf substituted the open-source GFS Didot, so the same SVG
+  rendered with two visibly different fonts depending on consumer. The
+  outlines below are baked from a **commercially-licensed Luxury Didot
+  Medium** OTF (foundry-internal PostScript name `Superhits-Medium`),
+  preserving the high-Didone contrast the brand mark was originally
+  designed around. The result: identical geometry in every consumer
+  surface, and the third-font cascade slot (`type.family.monogramMark`)
+  is retired.
+
+  Path provenance: see design-system/scripts/extract-monogram-paths.ts.
+  Run that script if you ever swap the source font; otherwise the paths
+  here are immutable and `brand:check` enforces lockstep against the
+  React Monogram mirror.
+
+  viewBox (0.30.3, re-trimmed after construction-marks removal):
+  painted content is now just the DN outlines + gold pedestal — no
+  architectural construction marks. The new ink-bbox is x≈13.23–145.53,
+  y≈61–188; viewBox `13 60 133 129` brackets this with ≤1u safety on
+  every side. Aspect 133/129 ≈ 1.031 (slightly square-ish, reflecting
+  the monogram's true silhouette without its outer reference grid).
+
+  History:
+    0.30.1 — viewBox `0 29 164 182` anchored to ink-bbox INCLUDING
+             the gold construction marks (lines at outer y=30, 113,
+             180, etc.).
+    0.30.3 — construction marks removed; viewBox re-trimmed to just
+             the DN + pedestal painted bbox.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="13 60 133 129"
+  width="133"
+  height="129"
+  role="img"
+  aria-label="Dorvelon monogram"
+>
+  <!--
+  <g stroke="#8C6D3F" stroke-width="1" stroke-dasharray="25 4 4 4" opacity="0.65">
+    <line x1="8"   y1="55"  x2="100" y2="55"  />
+    <line x1="1"   y1="113" x2="163" y2="113" />
+    <line x1="24"  y1="180" x2="90"  y2="180" />
+    <line x1="36"  y1="30"  x2="36"  y2="210" />
+    <line x1="56"  y1="48"  x2="56"  y2="153" />
+    <line x1="145" y1="78"  x2="145" y2="165" />
+  </g>
+  -->
+  <!-- DN letterforms — outlined paths (see header). The transform bakes the
+       font-units-to-SVG-units mapping previously applied implicitly by the
+       SVG text engine: scale 130/1000 = 0.13, y-axis flipped, origin moved
+       to the original text x/y baseline. -->
+  <path transform="matrix(0.19 0 0 -0.13 10 152)" fill="#0E2240" d="M17 700L17 692L93 692L93 8L29 8L29 0L224 0C405 1 495 176 495 351C495 526 404 700 222 700ZM180 692L218 692C342 692 403 521 403 350C403 179 341 8 218 8L180 8Z" />
+  <path transform="matrix(0.19 0 0 -0.13 53 188)" fill="#0E2240" d="M150 8L87 8L87 609L415 1L415 0L423 0L423 692L487 692L487 700L350 700L350 692L415 692L415 176L133 700L14 700L14 692L78 692L78 8L14 8L14 0L150 0Z" />
+  <!-- Gold pedestal — twin vertical stems + serif foot at DN intersection -->
+  <rect x="67" y="98" width="1" height="89" fill="#8C6D3F" />
+  <rect x="69" y="109" width="1" height="79" fill="#8C6D3F" />
+  <rect x="55" y="187" width="27"  height="1"  fill="#8C6D3F" />
+</svg>

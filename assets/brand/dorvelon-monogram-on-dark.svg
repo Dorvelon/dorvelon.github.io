@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dorvelon — Monogram (on-dark variant)
+  DN ligature outlined as <path> geometry (white ink on navy), gold pedestal,
+  pale-gold dashed construction marks.
+  Companion: dorvelon-monogram.svg (navy DN, on-light variant).
+  Use for: business-card back face (on navy), any dark-field surface.
+
+  0.30.0: DN is path-outlined (see header of dorvelon-monogram.svg for
+  the full rationale). Geometry mirrors the light variant verbatim; only
+  the `fill` colors flip.
+
+  viewBox (0.30.3): mirrors the light variant's re-trimmed viewBox
+  `13 60 133 129` after the construction-marks removal — see the
+  light variant for the full rationale. Geometry-identical mirror.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="13 60 133 129"
+  width="133"
+  height="129"
+  role="img"
+  aria-label="Dorvelon monogram"
+>
+  <!-- Construction marks — pale gold dashed lines for navy backdrop -->
+  <!--
+  <g stroke="#D4B987" stroke-width="1" stroke-dasharray="25 4 4 4" opacity="0.55">
+    <line x1="8" y1="55" x2="100" y2="55" />
+    <line x1="1" y1="113" x2="163" y2="113" />
+    <line x1="24" y1="180" x2="90" y2="180" />
+    <line x1="36" y1="30" x2="36" y2="210" />
+    <line x1="56" y1="48" x2="56" y2="153" />
+    <line x1="145" y1="78" x2="145" y2="165" />
+  </g>
+  -->
+  <!-- DN letterforms — outlined paths, white on dark. Path data identical
+       to the light variant; only `fill` changes. -->
+  <path transform="matrix(0.19 0 0 -0.13 10 152)" fill="#FFFFFF" d="M17 700L17 692L93 692L93 8L29 8L29 0L224 0C405 1 495 176 495 351C495 526 404 700 222 700ZM180 692L218 692C342 692 403 521 403 350C403 179 341 8 218 8L180 8Z" />
+  <path transform="matrix(0.19 0 0 -0.13 53 188)" fill="#FFFFFF" d="M150 8L87 8L87 609L415 1L415 0L423 0L423 692L487 692L487 700L350 700L350 692L415 692L415 176L133 700L14 700L14 692L78 692L78 8L14 8L14 0L150 0Z" />
+  <!-- Gold pedestal — twin vertical stems + serif foot at DN intersection -->
+  <rect x="67" y="98" width="1" height="89" fill="#8C6D3F" />
+  <rect x="69" y="109" width="1" height="79" fill="#8C6D3F" />
+  <rect x="55" y="187" width="27" height="1" fill="#8C6D3F" />
+</svg>

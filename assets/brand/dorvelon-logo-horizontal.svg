@@ -1,48 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Dorvelon — Horizontal logo lockup (standalone)
-  Monogram (Cormorant Garamond) + Wordmark "DORVELON" (Inter Regular)
-  Colors: navy #0E2240, gold #8C6D3F (system primary, consolidated 0.11.0)
-  Generated from components/brand/{Monogram,Wordmark,LogoHorizontal}.tsx
-  Use for: email signatures, social cards, business-card prints, decks
+  Monogram (path-outlined DN, 0.30.0) + Wordmark "DORVELON" (live Cormorant
+  Garamond Light text). Colors: navy #0E2240, gold #8C6D3F.
+  Use for: email signatures, social cards, business-card prints, decks.
+
+  0.30.0 font cascade:
+    DN letterforms → path-outlined SVG (no runtime font dependency). See
+                     dorvelon-monogram.svg header for the full rationale and
+                     design-system/scripts/extract-monogram-paths.ts for the
+                     extraction provenance.
+    DORVELON wordmark → live Cormorant Garamond Light text. The wordmark
+                     stays as <text> because Cormorant Garamond is the same
+                     font in every consumer (Google Fonts / @fontsource) —
+                     no system/embedded mismatch to worry about. `font-weight`
+                     is intentionally omitted so react-pdf's strict-equal
+                     FontFamily lookup resolves to the single registered
+                     Cormorant Garamond Light face.
+
+  Geometry (0.28.4): the monogram is composed via a `<g transform="matrix(…)">`
+  rather than a nested `<svg viewBox>`, because react-pdf's SVG parser does not
+  apply the inner viewBox transform on nested SVGs — it treats the nested
+  width/height as a clip region but leaves inner coordinates raw, so the DN
+  letterforms (designed at inner y=152/y=195 in a -12..223 inner viewBox) end up
+  past the outer y=100 clip line and disappear from the rendered lockup. The
+  matrix below is the exact equivalent of the previous nested viewBox map
+  (inner -22..198 × -12..223 → outer 0..94 × 0..100):
+    scaleX  = 94/220  = 0.42727272…
+    scaleY  = 100/235 = 0.42553191…
+    transX  = -(-22) × scaleX ≈ 9.4
+    transY  = -(-12) × scaleY ≈ 5.106
+  All inner coordinates below are unchanged — the designer's coordinate system
+  is preserved verbatim under the transform.
+
+  viewBox (0.30.3, re-trimmed after construction-marks removal): the
+  painted content now consists of just the DN outlines + the gold pedestal
+  + the DORVELON wordmark — no architectural construction marks. The new
+  ink-bbox is x≈15.05–337.39, y≈31.06–85.11 (measured). viewBox
+  `15 31 323 55` brackets this with ≤1u stroke/font-metric safety on each
+  side. Aspect ratio is now 323/55 ≈ 5.87 (vs old 4.218 under 0.30.1) —
+  consumers using `height: H pt` now get a width of `H × 5.87`, and the
+  wordmark renders at `30 × H/55 = 0.545 × H` SVG units. At H=12pt the
+  wordmark renders at ~6.55pt — chrome-row scale (vs the 6pt confidential
+  flag), aligned with the §6.5.7 `bottomAlignment: 'center'` rule.
+
+  History:
+    0.30.1 — viewBox `9 17 329 78` anchored to ink-bbox INCLUDING the
+             gold architectural construction marks (lines at outer x=8,
+             y=17.87 etc.). At H=30pt the wordmark rendered at 9pt.
+    0.30.3 — construction marks removed (cleaner look). The painted
+             bbox shrinks to the DN + pedestal + wordmark only;
+             viewBox re-trimmed to `15 31 323 55` (aspect 5.87). At
+             the new H=12pt cascade default, wordmark renders at
+             6.55pt — chrome-row scale, replacing the 0.30.1 H=30pt
+             with 9pt wordmark.
+
+  Invariant (added 0.30.1, enforced by `scripts/brand-check.ts` rule 6):
+  every brand-mark SVG MUST have viewBox = visible-ink bbox (±1 unit safety).
+  Without this rule, downstream paginated-PDF consumers cannot reason about
+  visible margins from their absolute-positioning anchors.
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 420 100"
-  width="420"
-  height="100"
+  viewBox="15 31 323 55"
+  width="323"
+  height="55"
   role="img"
   aria-label="Dorvelon"
 >
-  <!-- Monogram (Cormorant) — left half. Scale: internal 220×235 → 94×100 px -->
-  <svg x="0" y="0" width="94" height="100" viewBox="-22 -12 220 235" overflow="visible">
-    <!-- Architectural construction marks — gold dashed lines @ 65% opacity -->
-    <g stroke="#8C6D3F" stroke-width="1" stroke-dasharray="25 4 4 4" opacity="0.65">
-      <line x1="8"   y1="55"  x2="100" y2="55"  />
-      <line x1="1"   y1="113" x2="163" y2="113" />
-      <line x1="24"  y1="185" x2="90"  y2="185" />
-      <line x1="36"  y1="30"  x2="36"  y2="210" />
-      <line x1="57"  y1="48"  x2="57"  y2="153" />
-      <line x1="144" y1="78"  x2="144" y2="165" />
+  <!-- Monogram (path-outlined DN, 0.30.0) — left half. The transform maps
+       the designer's inner viewBox -22 -12 220 235 onto outer 0 0 94 100. -->
+  <g transform="matrix(0.42727 0 0 0.42553 9.4 5.106)">
+    <!-- Architectural construction marks — gold dashed lines @ 65% opacity.
+         stroke-width="2.34" preserves the original 1-unit hairline visual
+         after the 0.42553 scale (1 / 0.42553 ≈ 2.35). -->
+    <!--
+    <g stroke="#8C6D3F" stroke-width="2.34" stroke-dasharray="25 4 4 4" opacity="0.65">
+        <line x1="8" y1="55" x2="100" y2="55" />
+        <line x1="1" y1="113" x2="163" y2="113" />
+        <line x1="24" y1="180" x2="90" y2="180" />
+        <line x1="36" y1="30" x2="36" y2="210" />
+        <line x1="56" y1="48" x2="56" y2="153" />
+        <line x1="145" y1="78" x2="145" y2="165" />
     </g>
-    <!-- D — Cormorant Garamond Light -->
-    <text x="16" y="152" font-family="'Cormorant Garamond', Georgia, serif" font-size="130" font-weight="300" fill="#0E2240">D</text>
-    <!-- N — overlapping, lower z -->
-    <text x="52" y="195" font-family="'Cormorant Garamond', Georgia, serif" font-size="130" font-weight="300" fill="#0E2240">N</text>
-    <!-- Gold pedestal — twin vertical stems + serif foot at DN intersection -->
-    <rect x="64" y="117" width="3.5" height="79" fill="#8C6D3F" />
-    <rect x="70" y="123" width="3.5" height="73" fill="#8C6D3F" />
-    <rect x="57" y="192" width="24"  height="4"  fill="#8C6D3F" />
-  </svg>
+    -->
+    <!-- DN letterforms — outlined paths (see header). The inner matrix bakes
+         font-units-to-SVG-units (scale 0.13 with y flipped, baseline origin). -->
+    <path transform="matrix(0.19 0 0 -0.13 10 152)" fill="#0E2240" d="M17 700L17 692L93 692L93 8L29 8L29 0L224 0C405 1 495 176 495 351C495 526 404 700 222 700ZM180 692L218 692C342 692 403 521 403 350C403 179 341 8 218 8L180 8Z" />
+    <path transform="matrix(0.19 0 0 -0.13 53 188)" fill="#0E2240" d="M150 8L87 8L87 609L415 1L415 0L423 0L423 692L487 692L487 700L350 700L350 692L415 692L415 176L133 700L14 700L14 692L78 692L78 8L14 8L14 0L150 0Z" />
+    <!-- Gold pedestal — twin vertical stems + serif foot at DN intersection.
+         Original 1-unit widths preserved via the matrix scale. -->
+    <rect x="67" y="98" width="1" height="89" fill="#8C6D3F" />
+    <rect x="69" y="109" width="1" height="79" fill="#8C6D3F" />
+    <rect x="55" y="187" width="27" height="1" fill="#8C6D3F" />
+  </g>
 
-  <!-- Wordmark (Inter Regular) — right of monogram, vertically centered -->
+  <!-- Wordmark (Cormorant Garamond Light, 0.29.0) — right of monogram,
+       vertically centered. `font-family` is the single registered name
+       "Cormorant Garamond" (no comma-stack) because react-pdf uses the whole
+       `font-family` attribute as one strict-equal lookup key. `font-weight`
+       omitted to resolve to the single registered Cormorant Garamond face
+       (Light 300) — matches the Didot pattern above. Letter-spacing 6.6
+       SVG units = 0.22em at font-size 30 — Cormorant's wordmark tracking
+       value (vs the retired Inter wordmark's 0.35em / 10.5 units). -->
   <text
     x="122"
-    y="50"
-    font-family="'Inter', Arial, sans-serif"
+    y="57"
+    font-family="Cormorant Garamond"
     font-size="30"
-    font-weight="400"
-    letter-spacing="10.5"
+    letter-spacing="6.6"
     fill="#0E2240"
     dominant-baseline="central"
   >DORVELON</text>

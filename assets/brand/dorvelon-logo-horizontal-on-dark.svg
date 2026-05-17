@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dorvelon — Horizontal logo lockup (on-dark variant)
+  Path-outlined DN (white on dark, 0.30.0) + live Cormorant Garamond Light
+  DORVELON wordmark, gold pedestal + construction marks. Mirrors
+  `dorvelon-logo-horizontal.svg` with inverted ink fills — same geometry,
+  same proportions, same path data.
+  Use on: business-card tagline-alt back (navy field), spectacle dark slides,
+  navy email headers.
+
+  Geometry (0.28.4): the monogram is composed via a `<g transform="matrix(…)">`
+  rather than a nested `<svg viewBox>` for react-pdf compatibility — see the
+  light-variant SVG for the full rationale. The matrix below applies the
+  exact equivalent of the previous nested viewBox map (inner -22..198 ×
+  -12..223 → outer 0..94 × 0..100).
+
+  viewBox (0.30.3, re-trimmed after construction-marks removal):
+  mirrors the light variant's new ink-bbox-anchored viewBox `15 31 323 55`.
+  See the light variant for the full rationale — geometry is identical
+  (only `fill` flips), so painted-ink bbox and viewBox stay in lockstep.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="15 31 323 55"
+  width="323"
+  height="55"
+  role="img"
+  aria-label="Dorvelon"
+>
+  <!-- Monogram (path-outlined DN, white on dark) — left half via matrix transform. -->
+  <g transform="matrix(0.42727 0 0 0.42553 9.4 5.106)">
+    <!-- Architectural construction marks — paler white on dark for contrast.
+         stroke-width="2.34" preserves the original 1-unit hairline visual. -->
+    <!--
+    <g stroke="rgba(255,255,255,0.35)" stroke-width="2.34" stroke-dasharray="25 4 4 4" opacity="0.85">
+      <line x1="8" y1="55" x2="100" y2="55" />
+      <line x1="1" y1="113" x2="163" y2="113" />
+      <line x1="24" y1="180" x2="90" y2="180" />
+      <line x1="36" y1="30" x2="36" y2="210" />
+      <line x1="56" y1="48" x2="56" y2="153" />
+      <line x1="145" y1="78" x2="145" y2="165" />
+    </g>
+    -->
+    <!-- DN letterforms — outlined paths, white on dark. Geometry identical
+         to the light variant; only `fill` flips. -->
+    <path transform="matrix(0.19 0 0 -0.13 10 152)" fill="#FFFFFF" d="M17 700L17 692L93 692L93 8L29 8L29 0L224 0C405 1 495 176 495 351C495 526 404 700 222 700ZM180 692L218 692C342 692 403 521 403 350C403 179 341 8 218 8L180 8Z" />
+    <path transform="matrix(0.19 0 0 -0.13 53 188)" fill="#FFFFFF" d="M150 8L87 8L87 609L415 1L415 0L423 0L423 692L487 692L487 700L350 700L350 692L415 692L415 176L133 700L14 700L14 692L78 692L78 8L14 8L14 0L150 0Z" />
+    <!-- Gold pedestal — unchanged (gold reads on both tones). -->
+    <rect x="67" y="98" width="1" height="89" fill="#8C6D3F" />
+    <rect x="69" y="109" width="1" height="79" fill="#8C6D3F" />
+    <rect x="55" y="187" width="27" height="1" fill="#8C6D3F" />
+  </g>
+
+  <!-- Wordmark (Cormorant Garamond Light, 0.29.0) — right of monogram,
+       white on dark. Single-name `font-family="Cormorant Garamond"`;
+       `font-weight` omitted to resolve strictly to the single registered
+       face (Light 300). Letter-spacing 6.6 SVG units = 0.22em. See the
+       light-variant SVG for the full rationale. -->
+  <text
+    x="122"
+    y="57"
+    font-family="Cormorant Garamond"
+    font-size="30"
+    letter-spacing="6.6"
+    fill="#FFFFFF"
+    dominant-baseline="central"
+  >DORVELON</text>
+</svg>
