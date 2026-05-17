@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · One-Pager Preview</title>
+  <link rel="stylesheet" href="/previews/_tokens.css" />
+  <style>
+    /* US Letter @ 96dpi = 816×1056, scaled to 612×792 (75%) for browser fit */
+    .sheet {
+      width: 612px;
+      min-height: 792px;
+      padding: 36px 32px;
+      background: var(--color-neutral-canvas);
+      box-shadow: 0 24px 48px rgba(11,26,46,0.18);
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-slate-200);
+      margin-bottom: 24px;
+    }
+    .title-block { margin-bottom: 36px; }
+    .title-block h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 30px;
+      line-height: 1.05;
+      margin: 8px 0 6px;
+      color: var(--color-navy-900);
+      letter-spacing: var(--tracking-display);
+    }
+    .title-block .subtitle {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .zones {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .zone {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: var(--color-neutral-canvas);
+      border: 1px solid var(--color-slate-200);
+      padding: 18px 22px;
+      position: relative;
+    }
+    .zone::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--color-gold-400);
+    }
+    .zone--navy::before    { background: var(--color-navy-900); }
+    .zone--alert::before   { background: var(--color-alert-red); }
+    .zone--control::before { background: var(--color-control-teal); }
+    .zone__number {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--color-gold-500);
+      letter-spacing: var(--tracking-cta);
+      width: 22px;
+      flex-shrink: 0;
+    }
+    .zone__body { flex: 1; }
+    .zone__kicker {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-cta);
+      color: var(--color-gold-500);
+      text-transform: uppercase;
+      margin: 0 0 4px;
+    }
+    .zone__title {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-on-light-primary);
+      margin: 0 0 6px;
+      line-height: 1.25;
+    }
+    .zone__text {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      line-height: 1.55;
+      color: var(--color-text-on-light-body);
+      margin: 0;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-slate-200);
+      margin-top: 24px;
+    }
+    .footer .source {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      line-height: 1.5;
+      color: var(--color-text-on-light-muted);
+      max-width: 70%;
+      margin: 0;
+    }
+    .footer .meta {
+      font-family: var(--font-ui);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-stage">
+    <header class="preview-header">
+      <p class="eyebrow">Instance · One-Pager</p>
+      <h1>US Letter (8.5" × 11") leave-behind.</h1>
+      <p>Single-page executive briefing. Header eyebrow + Cormorant title + Inter subtitle, 3-zone card-strip body using the new cardStrip recipe, source footnote + brand anchor footer.</p>
+    </header>
+
+    <article class="sheet">
+      <header class="header">
+        <p class="eyebrow">Dorvelon · Engagement Brief · 2026-05-15</p>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="88" height="88" fill="none" stroke="#0E2240" stroke-width="3" />
+            <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#8C6D3F">D</text>
+          </svg>
+          <span class="lockup-word">Dorvelon</span>
+        </div>
+      </header>
+
+      <section class="title-block">
+        <h1>Architecting an examination-ready agentic-AI governance posture.</h1>
+        <p class="subtitle">An 8–12 week boutique engagement scoped to a single business unit's risk register and the institution's nearest examination window.</p>
+      </section>
+
+      <section class="zones">
+        <article class="zone">
+          <p class="zone__number">01</p>
+          <div class="zone__body">
+            <p class="zone__kicker">Scope</p>
+            <h3 class="zone__title">One business unit, one examination window.</h3>
+            <p class="zone__text">Engagement targets a single line of business (e.g., institutional trading risk, mortgage servicing AI, retail fraud detection). Scope is calibrated to your nearest scheduled examination, not the calendar year.</p>
+          </div>
+        </article>
+
+        <article class="zone zone--navy">
+          <p class="zone__number">02</p>
+          <div class="zone__body">
+            <p class="zone__kicker">Deliverables</p>
+            <h3 class="zone__title">Posture brief, control map, attestation pack.</h3>
+            <p class="zone__text">(a) Institutional posture brief mapped to SR 11-7 §III · ISO 42001 §6.1 · EU AI Act Art. 9. (b) Control map for in-scope agentic systems. (c) Attestation pack with sourced evidence indexed by control.</p>
+          </div>
+        </article>
+
+        <article class="zone zone--control">
+          <p class="zone__number">03</p>
+          <div class="zone__body">
+            <p class="zone__kicker">Timeline</p>
+            <h3 class="zone__title">8–12 weeks · senior practitioner end-to-end.</h3>
+            <p class="zone__text">Week 1–2 scoping interviews · Week 3–6 system inventory + control mapping · Week 7–10 attestation drafting + counsel review · Week 11–12 examination dry-run with your second line.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p class="source">Sources · ISO/IEC 42001:2023 §6.1.1 · Regulation (EU) 2024/1689 Article 9 · SR 11-7 §III(C) · NIST AI RMF 1.0 GOVERN-1.4.</p>
+        <p class="meta">Dorvelon · dorvelon.com · Page 1 of 1</p>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

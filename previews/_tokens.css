@@ -1,0 +1,298 @@
+/**
+ * Shared Dorvelon preview tokens
+ * Loaded by every /previews/*.html. Mirrors the subset of design-system/4_adapters/css.ts
+ * tokens needed for instance previews. Source of truth lives in the design system.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-display: "Cormorant Garamond", serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+
+  --color-navy-1000: #0a1a33;
+  --color-navy-950:  #0c1829;
+  --color-navy-900:  #0e2240;
+  --color-navy-850:  #101e33;
+  --color-navy-800:  #162848;
+  --color-navy-700:  #1c3560;
+  --color-neutral-canvas: #ffffff;
+  --color-neutral-paper:  #eef2f8;
+  --color-slate-50:  #f8fafc;
+  --color-slate-100: #eef2f8;
+  --color-slate-200: #e2e7ef;
+  --color-slate-300: #c8d2e2;
+
+  --color-gold-300: #d4b987;
+  --color-gold-400: #b89254;
+  --color-gold-500: #8c6d3f;
+  --color-gold-600: #a87830;
+
+  --color-text-on-dark-primary:   #ffffff;
+  --color-text-on-dark-secondary: rgba(255,255,255,0.65);
+  --color-text-on-dark-muted:     #b5c0d8;
+  --color-text-on-light-primary:  #0e2240;
+  --color-text-on-light-body:     #4a5e74;
+  --color-text-on-light-muted:    #5a6a85;
+
+  --color-alert-red:    #b91c1c;
+  --color-control-teal: #0e8a7f;
+
+  --tracking-eyebrow: 0.15em;
+  --tracking-label:   0.3em;
+  --tracking-cta:     0.22em;
+  --tracking-wordmark-sans: 0.35em;
+  --tracking-hero-role: 0.18em;
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.01em;
+
+  --leading-hero: 0.95;
+  --leading-page-hero: 1.08;
+  --leading-heading: 1.12;
+  --leading-title: 1.25;
+  --leading-body: 1.8;
+  --leading-body-tight: 1.6;
+  --leading-pull-quote: 1.55;
+
+  --pattern-hero-gradient: linear-gradient(135deg, #162848 0%, #1C3560 50%, #0E2240 100%);
+  --pattern-hero-grid:
+    linear-gradient(rgba(184,146,84,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,146,84,0.035) 1px, transparent 1px);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-ui);
+  background: var(--color-neutral-paper);
+  color: var(--color-text-on-light-primary);
+}
+
+/* Stage wrapper used by every preview */
+.preview-stage {
+  padding: 64px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+.preview-header {
+  max-width: 720px;
+  text-align: center;
+}
+.preview-header .eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gold-500);
+}
+.preview-header h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 36px;
+  color: var(--color-navy-900);
+  letter-spacing: var(--tracking-display);
+}
+.preview-header p {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--color-text-on-light-body);
+  line-height: var(--leading-body-tight);
+}
+.preview-spec {
+  margin: 16px 0 0;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-on-light-muted);
+}
+.preview-frame { display: flex; flex-direction: column; align-items: center; }
+.preview-row { display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; }
+
+/* ─── Recipe class library (mirror of CSS adapter emission) ─── */
+
+.dv-card-strip {
+  position: relative;
+  background: var(--color-neutral-canvas);
+  border: 1px solid var(--color-slate-200);
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.dv-card-strip::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--color-gold-400);
+}
+.dv-card-strip--navy::before    { background: var(--color-navy-900); }
+.dv-card-strip--deep::before    { background: var(--color-navy-1000); }
+.dv-card-strip--alert::before   { background: var(--color-alert-red); }
+.dv-card-strip--control::before { background: var(--color-control-teal); }
+.dv-card-strip__kicker {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-cta);
+  line-height: var(--leading-title);
+  text-transform: uppercase;
+  color: var(--color-gold-500);
+  margin: 0;
+}
+.dv-card-strip__title {
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-title);
+  color: var(--color-text-on-light-primary);
+  margin: 0;
+}
+.dv-card-strip__body {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: var(--leading-body);
+  color: var(--color-text-on-light-body);
+  margin: 0;
+}
+.dv-card-strip__meta {
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  letter-spacing: var(--tracking-hero-role);
+  text-transform: uppercase;
+  color: var(--color-text-on-light-muted);
+}
+
+.dv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--color-text-on-light-primary);
+  border: 1px solid var(--color-slate-200);
+}
+.dv-table thead th {
+  background: var(--color-navy-1000);
+  color: var(--color-gold-400);
+  text-align: left;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border-right: 1px solid rgba(232, 237, 245, 0.12);
+}
+.dv-table thead th:last-child { border-right: 0; }
+.dv-table tbody td {
+  padding: 9px 18px;
+  border-top: 1px solid var(--color-slate-200);
+  vertical-align: top;
+  line-height: var(--leading-body-tight);
+}
+.dv-table-section td {
+  background: var(--color-navy-900);
+  color: var(--color-gold-400);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-cta);
+  text-transform: uppercase;
+  padding: 8px 18px;
+}
+.dv-num {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--color-text-on-light-primary);
+}
+.dv-num--gold { color: var(--color-gold-500); font-weight: 600; }
+
+.dv-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: var(--tracking-hero-role);
+  text-transform: uppercase;
+  color: var(--color-text-on-light-muted);
+  margin: 0 0 20px;
+}
+.dv-legend__item { display: inline-flex; align-items: center; gap: 8px; }
+.dv-legend__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dv-legend__dot--gold    { background: var(--color-gold-400); }
+.dv-legend__dot--navy    { background: var(--color-navy-900); }
+.dv-legend__dot--deep    { background: var(--color-navy-1000); }
+.dv-legend__dot--mute    { background: var(--color-text-on-light-muted); }
+.dv-legend__dot--alert   { background: var(--color-alert-red); }
+.dv-legend__dot--control { background: var(--color-control-teal); }
+
+.dv-chart-row {
+  display: grid;
+  grid-template-columns: 240px 1fr 80px;
+  gap: 20px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-slate-200);
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+.dv-chart-row__label { color: var(--color-text-on-light-primary); }
+.dv-chart-row__track {
+  position: relative;
+  height: 8px;
+  background: var(--color-slate-200);
+}
+.dv-chart-row__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--color-navy-900);
+}
+.dv-chart-row__fill--accent  { background: var(--color-gold-400); }
+.dv-chart-row__fill--alert   { background: var(--color-alert-red); }
+.dv-chart-row__fill--control { background: var(--color-control-teal); }
+.dv-chart-row__value {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--color-text-on-light-primary);
+}
+
+/* Eyebrow + lockup atoms */
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-gold-500);
+  margin: 0;
+}
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.lockup-mark { width: 24px; height: 24px; flex-shrink: 0; }
+.lockup-word {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: var(--tracking-wordmark-sans);
+  color: var(--color-navy-900);
+  text-transform: uppercase;
+}

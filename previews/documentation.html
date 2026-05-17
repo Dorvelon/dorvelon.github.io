@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · Documentation Template Preview</title>
+  <link rel="stylesheet" href="/previews/_tokens.css" />
+  <style>
+    .doc-stack { display: flex; flex-direction: column; gap: 32px; align-items: center; }
+    .sheet {
+      width: 612px;
+      min-height: 792px;
+      padding: 56px 54px 64px;
+      background: var(--color-neutral-canvas);
+      box-shadow: 0 24px 48px rgba(11,26,46,0.18);
+      position: relative;
+      font-family: var(--font-ui);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Running header / footer chrome */
+    .running-header {
+      position: absolute;
+      top: 28px; left: 54px; right: 54px;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 6px;
+      border-bottom: 0.5px solid var(--color-slate-200);
+      font-family: var(--font-ui);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-hero-role);
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+    }
+    .running-footer {
+      position: absolute;
+      bottom: 28px; left: 54px; right: 54px;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 6px;
+      border-top: 0.5px solid var(--color-slate-200);
+      font-family: var(--font-ui);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-hero-role);
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+    }
+
+    /* Cover page */
+    .cover-page {
+      justify-content: space-between;
+    }
+    .cover-head { display: flex; justify-content: space-between; align-items: center; }
+    .cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cover-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 44px;
+      line-height: 1.05;
+      color: var(--color-navy-900);
+      margin: 0 0 16px;
+      letter-spacing: var(--tracking-display);
+    }
+    .cover-subtitle {
+      font-family: var(--font-ui);
+      font-size: 16px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.4;
+      max-width: 420px;
+      margin: 0;
+    }
+    .cover-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin: 0 0 16px;
+    }
+    .cover-meta p {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+      margin: 0 0 4px;
+    }
+
+    /* Section page */
+    .section-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin: 0 0 8px;
+    }
+    .section-title {
+      font-family: var(--font-ui);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-navy-900);
+      margin: 0 0 24px;
+      letter-spacing: var(--tracking-heading);
+    }
+    .section-lede {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-text-on-light-primary);
+      margin: 0 0 18px;
+    }
+    .section-paragraph {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--color-text-on-light-body);
+      margin: 0 0 14px;
+    }
+    .doc-callout {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: var(--color-neutral-canvas);
+      border: 1px solid var(--color-slate-200);
+      padding: 16px 18px;
+      margin: 18px 0;
+      position: relative;
+    }
+    .doc-callout::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--color-gold-400);
+    }
+    .doc-callout--alert::before { background: var(--color-alert-red); }
+    .doc-callout__kicker {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-cta);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin: 0 0 4px;
+    }
+    .doc-callout__title {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-on-light-primary);
+      margin: 0 0 6px;
+    }
+    .doc-callout__text {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      line-height: 1.6;
+      color: var(--color-text-on-light-body);
+      margin: 0;
+    }
+
+    /* TOC */
+    .toc-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 0.5px solid var(--color-slate-200);
+    }
+    .toc-name {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      color: var(--color-text-on-light-primary);
+    }
+    .toc-page {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      color: var(--color-text-on-light-muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-stage">
+    <header class="preview-header">
+      <p class="eyebrow">Instance · Documentation Template</p>
+      <h1>Multi-page paginated document.</h1>
+      <p>Page-count-unbounded template for proposals, governance memos, framework crosswalks. Sequence shown: cover → table of contents → §01 body page → references. Each running page carries header + footer chrome.</p>
+    </header>
+
+    <div class="doc-stack">
+      <!-- Cover page -->
+      <article class="sheet cover-page">
+        <header class="cover-head">
+          <div class="lockup">
+            <svg class="lockup-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="88" height="88" fill="none" stroke="#0E2240" stroke-width="3" />
+              <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#8C6D3F">D</text>
+            </svg>
+            <span class="lockup-word">Dorvelon</span>
+          </div>
+          <p class="cover-eyebrow">Engagement Memo</p>
+        </header>
+
+        <section class="cover-main">
+          <p class="cover-eyebrow">15 May 2026</p>
+          <h1 class="cover-title">Framework crosswalk · SR 11-7 to ISO/IEC 42001 for agentic systems.</h1>
+          <p class="cover-subtitle">A control-by-control mapping of the institutional model-risk regime onto the new AI management-system standard, scoped to in-production agentic deployments.</p>
+        </section>
+
+        <footer class="cover-meta">
+          <p>Prepared for · Continental Bank, N.A.</p>
+          <p>Author · Jucheng Zhao, Principal</p>
+          <p>Confidential · Internal distribution only</p>
+        </footer>
+      </article>
+
+      <!-- TOC -->
+      <article class="sheet">
+        <div class="running-header">
+          <span>SR 11-7 to ISO 42001 crosswalk</span>
+          <span>Contents</span>
+        </div>
+        <p class="section-eyebrow">Contents</p>
+        <h2 class="section-title">Document outline</h2>
+        <div>
+          <div class="toc-entry"><span class="toc-name">01 — Scope and methodology</span><span class="toc-page">3</span></div>
+          <div class="toc-entry"><span class="toc-name">02 — Control taxonomy</span><span class="toc-page">5</span></div>
+          <div class="toc-entry"><span class="toc-name">03 — Crosswalk matrix</span><span class="toc-page">8</span></div>
+          <div class="toc-entry"><span class="toc-name">04 — Gap analysis</span><span class="toc-page">14</span></div>
+          <div class="toc-entry"><span class="toc-name">05 — Remediation sequencing</span><span class="toc-page">18</span></div>
+          <div class="toc-entry"><span class="toc-name">06 — Examination-readiness checklist</span><span class="toc-page">22</span></div>
+          <div class="toc-entry"><span class="toc-name">07 — References</span><span class="toc-page">25</span></div>
+          <div class="toc-entry"><span class="toc-name">Appendix A — Glossary of terms</span><span class="toc-page">27</span></div>
+        </div>
+        <div class="running-footer">
+          <span>Confidential</span>
+          <span>Page 2 of 28</span>
+        </div>
+      </article>
+
+      <!-- §01 body page -->
+      <article class="sheet">
+        <div class="running-header">
+          <span>SR 11-7 to ISO 42001 crosswalk</span>
+          <span>§01 Scope and methodology</span>
+        </div>
+        <p class="section-eyebrow">01 — Scope and methodology</p>
+        <h2 class="section-title">A control-by-control mapping, not a translation guide.</h2>
+        <p class="section-lede">This memo maps the institutional model-risk regime (SR 11-7) onto the new AI management-system standard (ISO/IEC 42001:2023), with explicit treatment of the agentic-systems class. The output is a control crosswalk plus a sequenced remediation plan — not a regulatory primer.</p>
+        <p class="section-paragraph">The crosswalk methodology proceeds in three stages. First, the SR 11-7 control taxonomy is decomposed against its three regulatory pillars (validation, governance, ongoing performance monitoring). Second, each ISO/IEC 42001 clause is mapped to the nearest SR 11-7 control by intent — where intent does not transfer, a gap is logged.</p>
+        <p class="section-paragraph">Third, the agentic-system class is overlaid as a distinct concern: agentic systems extend the SR 11-7 control surface in two ways — they may take action without a human in the loop, and they may compose tools at run-time. Neither extension is contemplated in the original SR 11-7 text.</p>
+
+        <div class="doc-callout doc-callout--alert">
+          <div>
+            <p class="doc-callout__kicker">Methodological note · agentic class</p>
+            <p class="doc-callout__title">Run-time tool composition breaks "validate-then-deploy."</p>
+            <p class="doc-callout__text">An agentic system that composes tools at run-time cannot be fully validated pre-deployment in the SR 11-7 sense. The crosswalk treats this as a Class-3 gap (institutional control redesign required), not a Class-1 gap (control language refinement).</p>
+          </div>
+        </div>
+
+        <p class="section-paragraph">Section 02 enumerates the control taxonomy in full. Section 03 presents the crosswalk matrix with sourced citations. Section 04 surfaces the gaps. Section 05 sequences remediation against your nearest examination window. Section 06 collapses the work product into a checklist your second-line examiners can use directly.</p>
+
+        <div class="running-footer">
+          <span>Confidential</span>
+          <span>Page 3 of 28</span>
+        </div>
+      </article>
+
+      <!-- References page -->
+      <article class="sheet">
+        <div class="running-header">
+          <span>SR 11-7 to ISO 42001 crosswalk</span>
+          <span>References</span>
+        </div>
+        <p class="section-eyebrow">References</p>
+        <h2 class="section-title">Sourced authorities</h2>
+        <p class="section-paragraph">[1]&nbsp;&nbsp;Board of Governors of the Federal Reserve System & Office of the Comptroller of the Currency. (2011). Supervisory Guidance on Model Risk Management (SR 11-7 / OCC 2011-12). Retrieved from federalreserve.gov.</p>
+        <p class="section-paragraph">[2]&nbsp;&nbsp;International Organization for Standardization. (2023). ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system. Geneva: ISO.</p>
+        <p class="section-paragraph">[3]&nbsp;&nbsp;European Parliament & Council. (2024). Regulation (EU) 2024/1689 on Artificial Intelligence (AI Act). Official Journal of the European Union.</p>
+        <p class="section-paragraph">[4]&nbsp;&nbsp;National Institute of Standards and Technology. (2023). Artificial Intelligence Risk Management Framework (AI RMF 1.0). NIST Special Publication.</p>
+        <div class="running-footer">
+          <span>Confidential</span>
+          <span>Page 25 of 28</span>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · LinkedIn Assets Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-display: "Cormorant Garamond", serif;
+      --font-ui: "Inter", system-ui, sans-serif;
+      --color-navy-900: #0e2240;
+      --color-navy-800: #162848;
+      --color-navy-700: #1C3560;
+      --color-neutral-canvas: #ffffff;
+      --color-neutral-paper: #eef2f8;
+      --color-gold-400: #b89254;
+      --color-gold-500: #8c6d3f;
+      --color-gold-300: #d4b987;
+      --color-text-on-dark-secondary: rgba(255,255,255,0.65);
+      --color-text-on-light-body: #4a5e74;
+      --color-text-on-light-muted: #5a6a85;
+
+      --pattern-hero-gradient: linear-gradient(135deg, #162848 0%, #1C3560 50%, #0E2240 100%);
+      --pattern-hero-grid:
+        linear-gradient(rgba(184,146,84,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,146,84,0.035) 1px, transparent 1px);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-neutral-paper);
+      font-family: var(--font-ui);
+    }
+    .stage {
+      padding: 64px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+    .stage-header {
+      max-width: 720px;
+      text-align: center;
+    }
+    .stage-header .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin: 0 0 12px;
+    }
+    .stage-header h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 36px;
+      color: var(--color-navy-900);
+      margin: 0 0 8px;
+    }
+    .stage-header p {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .spec {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+      text-align: center;
+      margin-top: 16px;
+    }
+    .frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── Personal banner — 1584×396 scaled to fit ─────────────────────────── */
+    .banner {
+      width: 792px;   /* 50% scale */
+      height: 198px;
+      position: relative;
+      background: var(--pattern-hero-gradient);
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(11, 26, 46, 0.2);
+      color: #fff;
+    }
+    .banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--pattern-hero-grid);
+      background-size: 36px 36px; /* halved with banner scale */
+      pointer-events: none;
+    }
+    .banner-content {
+      position: absolute;
+      inset: 0;
+      padding: 30px 30px 30px 198px; /* reserve bottom-left 25% */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      z-index: 1;
+    }
+    .banner-eyebrow {
+      font-family: var(--font-ui);
+      margin: 0;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+    }
+    .banner-title {
+      font-family: var(--font-display);
+      margin: 0;
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 0.98;
+      color: #ffffff;
+      letter-spacing: -0.025em;
+    }
+    .banner-title em {
+      font-style: italic;
+      color: var(--color-gold-300);
+    }
+    .banner-subhead {
+      font-family: var(--font-ui);
+      margin: 0;
+      font-size: 9px;
+      line-height: 1.5;
+      color: var(--color-text-on-dark-secondary);
+      max-width: 380px;
+    }
+    .banner-mark {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      z-index: 2;
+      opacity: 0.85;
+    }
+    .banner-mark svg { width: 18px; height: 18px; }
+
+    /* ─── Square post — 1200×1200 scaled to fit ────────────────────────────── */
+    .square {
+      width: 480px;
+      height: 480px;
+      padding: 72px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      position: relative;
+      box-shadow: 0 24px 48px rgba(11,26,46,0.2);
+    }
+    .square--dark { background: var(--color-navy-900); color: #ffffff; }
+    .square--light { background: var(--color-neutral-canvas); color: var(--color-navy-900); }
+    .square-eyebrow {
+      font-family: var(--font-ui);
+      margin: 0;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+    }
+    .square-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .square-rule {
+      width: 28px;
+      height: 2px;
+      background: var(--color-gold-400);
+    }
+    .square-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .square-quote em { color: var(--color-gold-300); }
+    .square--light .square-quote em { color: var(--color-gold-500); font-style: italic; }
+    .square-attribution {
+      font-family: var(--font-ui);
+      margin: 0;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-on-light-muted);
+    }
+    .square--dark .square-attribution { color: var(--color-text-on-dark-secondary); }
+    .square-monogram {
+      position: absolute;
+      right: 72px;
+      bottom: 72px;
+      width: 40px;
+      height: 40px;
+    }
+    .square--dark .square-monogram { opacity: 0.5; }
+    .row { display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <header class="stage-header">
+      <p class="eyebrow">Instance · LinkedIn Assets</p>
+      <h1>Personal banner + square post.</h1>
+      <p>Two canvas presets rendered at 50% / 40% scale for verification. Bottom-left 25% of the banner is reserved for the LinkedIn profile-photo overlay.</p>
+    </header>
+
+    <!-- Banner -->
+    <div class="frame">
+      <div class="banner">
+        <div class="banner-mark">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="88" height="88" fill="none" stroke="#D4B987" stroke-width="3" />
+            <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#D4B987">D</text>
+          </svg>
+          Dorvelon
+        </div>
+        <div class="banner-content">
+          <p class="banner-eyebrow">AI Governance · Institutional</p>
+          <h2 class="banner-title">Institutional certainty. <em>Not hours.</em></h2>
+          <p class="banner-subhead">Boutique AI governance for regulated financial institutions. Direct engagement with senior practitioners throughout — never handed to junior staff.</p>
+        </div>
+      </div>
+      <p class="spec">Personal banner · 1584 × 396 (shown @ 50%)</p>
+    </div>
+
+    <!-- Two squares -->
+    <div class="row">
+      <div class="frame">
+        <article class="square square--dark">
+          <p class="square-eyebrow">Punchline · Engagement Letter</p>
+          <div class="square-body">
+            <div class="square-rule"></div>
+            <blockquote class="square-quote">Governance is architecture, <em>not paperwork.</em></blockquote>
+            <p class="square-attribution">— Dorvelon Engagement Letter, §1.2</p>
+          </div>
+          <svg class="square-monogram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="88" height="88" fill="none" stroke="#D4B987" stroke-width="3" />
+            <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#D4B987">D</text>
+          </svg>
+        </article>
+        <p class="spec">Square post · dark theme (1200 × 1200 @ 40%)</p>
+      </div>
+
+      <div class="frame">
+        <article class="square square--light">
+          <p class="square-eyebrow">Framework · ISO 42001</p>
+          <div class="square-body">
+            <div class="square-rule"></div>
+            <blockquote class="square-quote">Examination-ready is the only kind of <em>ready that counts.</em></blockquote>
+            <p class="square-attribution">— Dorvelon Position Paper · 2026</p>
+          </div>
+          <svg class="square-monogram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="88" height="88" fill="none" stroke="#8C6D3F" stroke-width="3" />
+            <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#8C6D3F">D</text>
+          </svg>
+        </article>
+        <p class="spec">Square post · light theme (1200 × 1200 @ 40%)</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

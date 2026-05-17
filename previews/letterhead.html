@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · Letterhead Preview</title>
+  <link rel="stylesheet" href="/previews/_tokens.css" />
+  <style>
+    .sheet {
+      width: 612px;
+      min-height: 792px;
+      padding: 56px 54px;
+      background: var(--color-neutral-canvas);
+      box-shadow: 0 24px 48px rgba(11,26,46,0.18);
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-ui);
+    }
+    .l-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-slate-200);
+      margin-bottom: 40px;
+    }
+    .l-header .practice {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-hero-role);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+    }
+    .l-date {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      margin: 0 0 32px;
+    }
+    .l-recipient {
+      margin-bottom: 32px;
+    }
+    .l-recipient p {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .l-subject {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-on-light-primary);
+      margin: 0 0 32px;
+    }
+    .l-body p {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.7;
+      margin: 0 0 16px;
+    }
+    .l-signoff {
+      margin-top: 32px;
+    }
+    .l-signoff .sincerely {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      margin: 0 0 48px;
+    }
+    .l-signoff .name {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-on-light-primary);
+      margin: 0;
+    }
+    .l-signoff .title {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      color: var(--color-text-on-light-muted);
+      margin: 2px 0 0;
+    }
+    .l-footer {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--color-slate-200);
+      margin-top: 40px;
+      font-family: var(--font-ui);
+      font-size: 8px;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-stage">
+    <header class="preview-header">
+      <p class="eyebrow">Instance · Letterhead</p>
+      <h1>Formal correspondence template.</h1>
+      <p>Single-page US Letter (8.5" × 11") with logo + AGAT Partners header, date / addressee / subject blocks, body paragraphs, sign-off, and footer with confidentiality + page identifier.</p>
+    </header>
+
+    <article class="sheet">
+      <header class="l-header">
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="88" height="88" fill="none" stroke="#0E2240" stroke-width="3" />
+            <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#8C6D3F">D</text>
+          </svg>
+          <span class="lockup-word">Dorvelon</span>
+        </div>
+        <p class="practice">AGAT Partners LLC</p>
+      </header>
+
+      <p class="l-date">15 May 2026</p>
+
+      <section class="l-recipient">
+        <p>Margaret Holloway</p>
+        <p>Chief Risk Officer</p>
+        <p>Continental Bank, N.A.</p>
+      </section>
+
+      <p class="l-subject">Re: Examination-readiness engagement · institutional trading AI</p>
+
+      <section class="l-body">
+        <p>Following our conversation on 12 May, this letter confirms the scope and timeline for the boutique engagement Continental Bank has commissioned with Dorvelon.</p>
+        <p>The engagement addresses your institutional trading desk's agentic-AI control posture in advance of the OCC's October examination cycle. Scope is calibrated to the desk's risk register as of the most recent quarterly attestation and to the regulator's customary look-back window of eighteen months.</p>
+        <p>Deliverables are: (a) a posture brief mapping current controls against SR 11-7 §III, ISO/IEC 42001 §6.1, and the EU AI Act Article 9 obligations applicable to your London-based execution venue; (b) a control map for the agentic systems currently in production; and (c) an attestation pack indexed by control, with sourced evidence ready for examination submission.</p>
+        <p>The engagement is led by Jucheng Zhao, Principal, and runs eight to twelve weeks beginning the week of 27 May. As discussed, every working session is direct with the senior practitioner — no junior staff are routed into the engagement.</p>
+        <p>Please countersign and return one copy. The retainer schedule, conflict declaration, and confidentiality terms accompany this letter as Schedule A.</p>
+      </section>
+
+      <section class="l-signoff">
+        <p class="sincerely">Sincerely,</p>
+        <p class="name">Jucheng Zhao</p>
+        <p class="title">Principal · AI Governance Architect · Dorvelon</p>
+      </section>
+
+      <footer class="l-footer">
+        <span>Confidential · Page 1 of 1</span>
+        <span>dorvelon.com</span>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

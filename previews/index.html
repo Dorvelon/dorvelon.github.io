@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · Instance Previews</title>
+  <link rel="stylesheet" href="/previews/_tokens.css" />
+  <style>
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px 64px;
+    }
+    .preview-card {
+      display: flex;
+      flex-direction: column;
+      padding: 32px 28px;
+      background: var(--color-neutral-canvas);
+      border: 1px solid var(--color-slate-200);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      transition: background 0.2s ease;
+    }
+    .preview-card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--color-gold-400);
+    }
+    .preview-card:hover { background: var(--color-neutral-paper); }
+    .preview-card h2 {
+      font-family: var(--font-ui);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--color-navy-900);
+      margin: 0 0 8px;
+      letter-spacing: var(--tracking-heading);
+    }
+    .preview-card .number {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-cta);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin: 0 0 4px;
+    }
+    .preview-card .summary {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.55;
+      margin: 0 0 16px;
+    }
+    .preview-card .meta {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--color-slate-200);
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-stage">
+    <header class="preview-header">
+      <p class="eyebrow">Design System · Instance Previews</p>
+      <h1>Six Dorvelon-branded instances.</h1>
+      <p>Each card opens a self-contained preview of a single instance reproduced from the brand reference kit. Every preview consumes the same design-system tokens (v0.20.0) and the new cardStrip / table-section / legend / chart-row recipes.</p>
+    </header>
+
+    <section class="preview-grid">
+      <a class="preview-card" href="/previews/business-card.html">
+        <p class="number">01 · Print collateral</p>
+        <h2>Business card</h2>
+        <p class="summary">3.5" × 2" two-face card. Front cream face (lockup + identity + contact), back monogram or italic tagline.</p>
+        <p class="meta">Medium · business-card</p>
+      </a>
+
+      <a class="preview-card" href="/previews/one-pager.html">
+        <p class="number">02 · Print collateral</p>
+        <h2>One-pager</h2>
+        <p class="summary">US Letter single-page leave-behind. Header eyebrow + Cormorant title + 3-zone cardStrip body + source footnote.</p>
+        <p class="meta">Medium · one-pager</p>
+      </a>
+
+      <a class="preview-card" href="/previews/letterhead.html">
+        <p class="number">03 · Document</p>
+        <h2>Letterhead</h2>
+        <p class="summary">Single-page formal correspondence template. Logo + practice header, date / addressee / subject, body, sign-off, footer.</p>
+        <p class="meta">Medium · document · format · letterhead</p>
+      </a>
+
+      <a class="preview-card" href="/previews/documentation.html">
+        <p class="number">04 · Document</p>
+        <h2>Documentation template</h2>
+        <p class="summary">Multi-page paginated document. Cover → TOC → numbered sections (with cardStrip callouts) → references. Page count unbounded.</p>
+        <p class="meta">Medium · document · format · multi-page</p>
+      </a>
+
+      <a class="preview-card" href="/previews/linkedin.html">
+        <p class="number">05 · Social</p>
+        <h2>LinkedIn assets</h2>
+        <p class="summary">Two canvas presets — Personal banner (1584 × 396) with hero gradient + mesh, plus dark/light square posts (1200 × 1200).</p>
+        <p class="meta">Medium · linkedin</p>
+      </a>
+
+      <a class="preview-card" href="/previews/email-signature.html">
+        <p class="number">06 · Operational</p>
+        <h2>Email signature</h2>
+        <p class="summary">Inline-styled HTML table compatible with Gmail / Outlook / Apple Mail / Superhuman / mobile clients. Websafe font fallback chain.</p>
+        <p class="meta">Medium · email · format · html</p>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

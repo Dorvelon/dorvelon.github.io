@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · Business Card Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Dorvelon design tokens (mirror of design-system/4_adapters/css.ts emission) */
+    :root {
+      --font-display: "Cormorant Garamond", serif;
+      --font-ui: "Inter", system-ui, sans-serif;
+
+      --color-navy-900: #0e2240;
+      --color-navy-1000: #0a1a33;
+      --color-neutral-canvas: #ffffff;
+      --color-neutral-paper: #eef2f8;
+      --color-slate-200: #e2e7ef;
+      --color-gold-300: #d4b987;
+      --color-gold-400: #b89254;
+      --color-gold-500: #8c6d3f;
+      --color-text-on-light-primary: #0e2240;
+      --color-text-on-light-body: #4a5e74;
+      --color-text-on-light-muted: #5a6a85;
+
+      --tracking-eyebrow: 0.15em;
+      --tracking-wordmark-sans: 0.35em;
+      --tracking-label: 0.3em;
+      --tracking-cta: 0.22em;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-neutral-paper);
+      font-family: var(--font-ui);
+      color: var(--color-text-on-light-primary);
+    }
+    .stage {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 32px;
+      gap: 48px;
+    }
+    .stage-header {
+      text-align: center;
+      max-width: 720px;
+    }
+    .stage-header .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin: 0 0 12px;
+    }
+    .stage-header h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 36px;
+      color: var(--color-navy-900);
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .stage-header p {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ─── Business card — actual 3.5"x2" at 96dpi = 336×192px ──────────────── */
+    .card {
+      width: 336px;
+      height: 192px;
+      padding: 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 24px 48px rgba(11, 26, 46, 0.18);
+      position: relative;
+    }
+    .card-front {
+      background: var(--color-neutral-canvas);
+    }
+    .card-back {
+      background: var(--color-navy-900);
+      align-items: center;
+      justify-content: center;
+    }
+    .row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Lockup */
+    .lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lockup-mark {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .lockup-word {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: var(--tracking-wordmark-sans);
+      color: var(--color-navy-900);
+      text-transform: uppercase;
+    }
+    .card-back .lockup-word { color: #ffffff; }
+
+    .name {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-on-light-primary);
+      margin: 0 0 2px;
+    }
+    .role {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--color-text-on-light-body);
+      margin: 0;
+    }
+    .gold-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--color-gold-500);
+      margin: 10px 0;
+    }
+    .practice {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--color-gold-500);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-eyebrow);
+      margin: 0 0 6px;
+    }
+    .contact {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-on-light-primary);
+      margin: 0;
+    }
+
+    /* Back face — monogram variant */
+    .monogram {
+      width: 84px;
+      height: 84px;
+      opacity: 0.85;
+    }
+    /* Back face — tagline variant */
+    .tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      color: var(--color-gold-300);
+      text-align: center;
+      line-height: 1.45;
+      max-width: 240px;
+      margin: 0;
+    }
+
+    /* Spec label below each card */
+    .spec {
+      margin-top: 12px;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-text-on-light-muted);
+    }
+    .face {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <header class="stage-header">
+      <p class="eyebrow">Instance · Business Card</p>
+      <h1>3.5" × 2" — Front + Back.</h1>
+      <p>Render verifies the canonical card template before sub-instance fork. Both back-face variants (monogram default, italic tagline alternate) shown side-by-side.</p>
+    </header>
+
+    <section class="row">
+      <div class="face">
+        <article class="card card-front">
+          <div class="lockup">
+            <!-- Inline SVG monogram (compact, brand-correct) -->
+            <svg class="lockup-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="88" height="88" fill="none" stroke="#0E2240" stroke-width="3" />
+              <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#8C6D3F">D</text>
+            </svg>
+            <span class="lockup-word">Dorvelon</span>
+          </div>
+          <div>
+            <p class="name">Jucheng Zhao</p>
+            <p class="role">Principal · AI Governance Architect</p>
+          </div>
+          <div>
+            <div class="gold-rule"></div>
+            <p class="practice">AGAT Partners LLC</p>
+            <p class="contact">j.zhao@dorvelon.com · cal.com/dorvelon · linkedin.com/in/jzhao</p>
+          </div>
+        </article>
+        <p class="spec">Front · cream face</p>
+      </div>
+
+      <div class="face">
+        <article class="card card-back">
+          <svg class="monogram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="88" height="88" fill="none" stroke="#D4B987" stroke-width="2.5" opacity="0.65" />
+            <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond" font-weight="300" font-size="56" fill="#D4B987">D</text>
+          </svg>
+        </article>
+        <p class="spec">Back · monogram (default)</p>
+      </div>
+
+      <div class="face">
+        <article class="card card-back">
+          <p class="tagline">Institutional certainty in agentic AI.</p>
+        </article>
+        <p class="spec">Back · italic tagline (alt)</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

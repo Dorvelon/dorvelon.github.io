@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dorvelon · Email Signature Preview</title>
+  <link rel="stylesheet" href="/previews/_tokens.css" />
+  <style>
+    .mail-client {
+      width: 720px;
+      background: var(--color-neutral-canvas);
+      box-shadow: 0 24px 48px rgba(11,26,46,0.18);
+      padding: 32px;
+      font-family: var(--font-ui);
+    }
+    .mail-header {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--color-slate-200);
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+    .mail-header .label {
+      color: var(--color-text-on-light-muted);
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      font-size: 9.5px;
+    }
+    .mail-header .value {
+      color: var(--color-text-on-light-primary);
+    }
+    .mail-body {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-on-light-body);
+      line-height: 1.6;
+    }
+    .mail-body p { margin: 0 0 14px; }
+    .signature-block {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-slate-200);
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-stage">
+    <header class="preview-header">
+      <p class="eyebrow">Instance · Email Signature</p>
+      <h1>Inline-styled HTML table.</h1>
+      <p>Table-layout signature that renders consistently across Gmail web, Apple Mail, Outlook 2013-2019, and mobile clients. Shown below a stub email body for context. Web fonts → websafe fallback chain handles the Inter / Cormorant pair.</p>
+    </header>
+
+    <article class="mail-client">
+      <header class="mail-header">
+        <span class="label">From</span><span class="value">Jucheng Zhao &lt;j.zhao@dorvelon.com&gt;</span>
+        <span class="label">To</span><span class="value">Margaret Holloway &lt;m.holloway@continental.example.com&gt;</span>
+        <span class="label">Subject</span><span class="value">Re: Examination-readiness scoping</span>
+      </header>
+
+      <section class="mail-body">
+        <p>Margaret,</p>
+        <p>Thank you for the additional context on the OCC examination cycle. The October window is well within scope for an 8-week engagement; the proposed start week of 27 May leaves a buffer of three weeks for second-line review before submission.</p>
+        <p>I'll have the engagement letter and Schedule A ready by EOD Friday. Please flag any conflicts ahead of countersignature.</p>
+      </section>
+
+      <!-- Signature block — inline HTML table -->
+      <section class="signature-block">
+        <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:480px; border-collapse:collapse; font-family:Inter, Arial, Helvetica, sans-serif; color:#0E2240;">
+          <tr>
+            <td style="vertical-align:top; padding-right:18px;">
+              <!-- Monogram inline SVG (works in most clients; PNG hosted recommended for hardened email) -->
+              <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display:block; border:0;">
+                <rect x="6" y="6" width="88" height="88" fill="none" stroke="#0E2240" stroke-width="3"/>
+                <text x="50" y="64" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="300" font-size="56" fill="#8C6D3F">D</text>
+              </svg>
+            </td>
+            <td style="vertical-align:top;">
+              <table cellpadding="0" cellspacing="0" border="0" role="presentation">
+                <tr><td style="font-family:Inter, Arial, Helvetica, sans-serif; font-size:14px; font-weight:500; color:#0E2240; line-height:18px; padding-bottom:2px;">Jucheng Zhao</td></tr>
+                <tr><td style="font-family:Inter, Arial, Helvetica, sans-serif; font-size:12px; font-weight:400; color:#4A5E74; line-height:16px; padding-bottom:8px;">Principal · AI Governance Architect</td></tr>
+                <tr><td style="font-size:0; line-height:0; padding:0;"><div style="width:32px; height:1px; background-color:#8C6D3F; font-size:0; line-height:0;">&nbsp;</div></td></tr>
+                <tr><td style="font-family:Inter, Arial, Helvetica, sans-serif; font-size:10px; font-weight:500; color:#8C6D3F; text-transform:uppercase; letter-spacing:0.15em; padding-top:8px; padding-bottom:4px;">AGAT Partners LLC</td></tr>
+                <tr><td style="font-family:Inter, Arial, Helvetica, sans-serif; font-size:12px; font-weight:400; color:#0E2240; line-height:18px;">
+                  <a href="mailto:j.zhao@dorvelon.com" style="color:#0E2240; text-decoration:underline;">j.zhao@dorvelon.com</a>
+                  &nbsp;·&nbsp;
+                  <a href="https://cal.com/dorvelon" style="color:#0E2240; text-decoration:underline;">cal.com/dorvelon</a>
+                  &nbsp;·&nbsp;
+                  <a href="https://linkedin.com/in/jzhao" style="color:#0E2240; text-decoration:underline;">linkedin.com/in/jzhao</a>
+                </td></tr>
+                <tr><td style="font-family:Inter, Arial, Helvetica, sans-serif; font-size:10px; font-weight:400; color:#5A6A85; padding-top:8px; line-height:14px;">Confidential — do not forward without consent. Engagement subject to availability.</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
