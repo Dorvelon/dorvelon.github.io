@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dorvelon — Wordmark (standalone "DORVELON" only, no DN monogram)
+
+  Single source of truth for the typographic wordmark across mediums that
+  need the brand name alone — e.g. the business-card front face (0.34.0)
+  where the DN monogram on the back is the only DN occurrence, and a
+  second DN on the front would double the mark across two faces.
+
+  Derived from `dorvelon-logo-horizontal.svg` by removing the monogram
+  `<g transform>` group. The `<text>` element is identical — same
+  Cormorant Garamond Light face, same font-size 30, same letter-spacing
+  6.6 (≈ 0.22em wordmark tracking) — so the wordmark renders
+  visually-identical to the horizontal lockup at the same height.
+
+  Geometry:
+    The `<text>` is anchored at (x=122, y=57) with
+    dominant-baseline="central" in the parent lockup's coordinate
+    system. ViewBox `121 43 217 28` (width 217, height 28, aspect
+    ≈ 7.75) brackets the visible cap-height / descender bbox with
+    ~1u safety per the §brand-check rule 6 invariant ("viewBox =
+    visible-ink bbox ±1 unit").
+
+  Font cascade:
+    DORVELON wordmark → live Cormorant Garamond Light text. The
+                       wordmark stays as <text> because Cormorant
+                       Garamond is the same font in every consumer
+                       (Google Fonts / @fontsource) — no
+                       system/embedded mismatch. `font-weight` is
+                       intentionally omitted so react-pdf's
+                       strict-equal FontFamily lookup resolves to
+                       the single registered Cormorant Garamond
+                       Light face (mirrors the horizontal-lockup
+                       SVG's pattern).
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="121 43 217 28"
+  width="217"
+  height="28"
+  role="img"
+  aria-label="Dorvelon"
+>
+  <text
+    x="122"
+    y="57"
+    font-family="Cormorant Garamond"
+    font-size="30"
+    letter-spacing="6.6"
+    fill="#0E2240"
+    dominant-baseline="central"
+  >DORVELON</text>
+</svg>

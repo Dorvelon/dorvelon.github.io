@@ -6,7 +6,7 @@
  * this barrel; no consumer re-implements the DN geometry, the dashed
  * construction marks, the gold pedestal, or the wordmark typography.
  *
- * For non-React renderers (react-pdf, email, linkedin), the canonical
+ * For non-React renderers (react-pdf, linkedin), the canonical
  * artifact is the SVG file in `6_assets/brand/dorvelon-*.svg`, which
  * mirrors the geometry exported by these components. The two surfaces
  * (React + SVG) are kept in lockstep by `scripts/brand-check.ts` — see
