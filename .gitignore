@@ -1,0 +1,53 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Repo-wide ignore rules. Per-instance .gitignore files should only carry
+# instance-specific exceptions (e.g. Next.js typegen) — anything universal
+# belongs here.
+# ──────────────────────────────────────────────────────────────────────────────
+
+# ── OS / editor noise ────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# ── Dependencies ─────────────────────────────────────────────────────────────
+**/node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ── Build outputs (every instance) ───────────────────────────────────────────
+**/dist/
+**/build/
+**/out/
+**/.next/
+**/.vite/
+**/*.tsbuildinfo
+next-env.d.ts
+
+# ── Drafts (per-medium scratch, never commit) ────────────────────────────────
+**/sub_instances/_drafts/
+
+# ── Logs / debug ─────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ── Env / secrets ────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+
+# ── Hosting ──────────────────────────────────────────────────────────────────
+.vercel
+
+# ── Test coverage ────────────────────────────────────────────────────────────
+/coverage
