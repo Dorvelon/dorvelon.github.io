@@ -63,18 +63,22 @@ const THEMES: Record<
 
 /**
  * Outlined DN letterforms — `transform` bakes the font-units-to-SVG-units
- * mapping (scale 0.13 with y axis flipped, origin at the original baseline
- * x/y). Mirrors `6_assets/brand/dorvelon-monogram.svg` byte-for-byte;
- * `brand:check` enforces lockstep across all four canonical SVGs and this
- * component. Update via `design-system/scripts/extract-monogram-paths.ts`.
+ * mapping (x scale 0.19, y scale 0.13 with y axis flipped, origin at the
+ * original baseline x/y). Mirrors `6_assets/brand/dorvelon-monogram.svg`
+ * byte-for-byte; `brand:check` enforces lockstep across all canonical SVGs
+ * and this component. Update via `design-system/scripts/extract-monogram-paths.ts`.
+ *
+ * Note: x scale 0.19 ≠ y scale 0.13. The letterforms are intentionally wider
+ * in SVG coordinate space to match the source font's aspect ratio. The y-axis
+ * scale of 0.13 = 130/1000 maps from 1000-unit-em font coordinates with y-flip.
  */
 export const MONOGRAM_DN_PATHS = {
   D: {
-    transform: "matrix(0.13 0 0 -0.13 16 152)",
+    transform: "matrix(0.19 0 0 -0.13 10 152)",
     d: "M17 700L17 692L93 692L93 8L29 8L29 0L224 0C405 1 495 176 495 351C495 526 404 700 222 700ZM180 692L218 692C342 692 403 521 403 350C403 179 341 8 218 8L180 8Z",
   },
   N: {
-    transform: "matrix(0.13 0 0 -0.13 52 195)",
+    transform: "matrix(0.19 0 0 -0.13 53 188)",
     d: "M150 8L87 8L87 609L415 1L415 0L423 0L423 692L487 692L487 700L350 700L350 692L415 692L415 176L133 700L14 700L14 692L78 692L78 8L14 8L14 0L150 0Z",
   },
 } as const;
@@ -151,9 +155,9 @@ export function Monogram({
            `brand:check` enforces the lockstep. */}
       {grid && (
         <>
-          <rect x="68.5" y="104" width="1" height="90" fill={t.accent} />
-          <rect x="70.5" y="108" width="1" height="85" fill={t.accent} />
-          <rect x="54"   y="193" width="32" height="2" fill={t.accent} />
+          <rect x="67" y="98"  width="1"  height="89" fill={t.accent} />
+          <rect x="69" y="109" width="1"  height="79" fill={t.accent} />
+          <rect x="55" y="187" width="27" height="1"  fill={t.accent} />
         </>
       )}
     </svg>

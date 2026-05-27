@@ -56,9 +56,11 @@
   </g>
   -->
   <!-- DN letterforms — outlined paths (see header). The transform bakes the
-       font-units-to-SVG-units mapping previously applied implicitly by the
-       SVG text engine: scale 130/1000 = 0.13, y-axis flipped, origin moved
-       to the original text x/y baseline. -->
+       font-units-to-SVG-units mapping: x scale 0.19 (letterform aspect ratio),
+       y scale 0.13 = 130/1000 (1000-unit-em font coordinates), y-axis flipped,
+       origin moved to the original text x/y baseline.
+       `brand:check` enforces byte-for-byte lockstep with Monogram.tsx and all
+       peer SVGs. See scripts/extract-monogram-paths.ts for the source transform. -->
   <path transform="matrix(0.19 0 0 -0.13 10 152)" fill="#0E2240" d="M17 700L17 692L93 692L93 8L29 8L29 0L224 0C405 1 495 176 495 351C495 526 404 700 222 700ZM180 692L218 692C342 692 403 521 403 350C403 179 341 8 218 8L180 8Z" />
   <path transform="matrix(0.19 0 0 -0.13 53 188)" fill="#0E2240" d="M150 8L87 8L87 609L415 1L415 0L423 0L423 692L487 692L487 700L350 700L350 692L415 692L415 176L133 700L14 700L14 692L78 692L78 8L14 8L14 0L150 0Z" />
   <!-- Gold pedestal — twin vertical stems + serif foot at DN intersection -->
